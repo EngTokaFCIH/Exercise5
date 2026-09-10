@@ -77,6 +77,10 @@ form label i{
     transform: rotate(360deg);
 }
 
+#Search{
+    width: 300px;
+}
+
 #Search i{
     color: #a97f40;
 }

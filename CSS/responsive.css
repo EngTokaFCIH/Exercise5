@@ -1,35 +1,43 @@
 @media (max-width: 1300px) {
-    #Register .head img{
+    #Register .head img {
         width: 170px;
     }
-    #Register form{
+
+    #Register form {
         width: 80%;
     }
+
+    #Search {
+        width: 200px;
+    }
 }
 
-@media (min-width: 371px) and (max-width: 1300px) {
-}
+@media (min-width: 371px) and (max-width: 1300px) {}
 
 @media (min-width: 577px) and (max-width: 1300px) {
-    #Register form{
+    #Register form {
         width: 70%;
     }
+
+    #Search{
+        width: 300px;
+}
 
 }
 
 @media (min-width: 769px) and (max-width: 1300px) {
-    #Register form{
+    #Register form {
         width: 50%;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1300px) {
-    #Register .head img{
-      width: 200px;
-} 
+    #Register .head img {
+        width: 200px;
+    }
+
+   
 
 }
 
-@media (min-width: 1181px) and (max-width: 1300px) {
-
-}
+@media (min-width: 1181px) and (max-width: 1300px) {}
