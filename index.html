@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise-5</title>
+    <link rel="icon" href="Images/images/logo-be01d065 (1).png">
+    <link rel="stylesheet" href="CSS/all.css">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="CSS/fonts.css">
+    <link rel="stylesheet" href="CSS/animation.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+</head>
+
+<body>
+    <section id="Register" class="py-5">
+        <div class="head mb-5">
+            <img src="Images/images/logo-be01d065 (1).png" alt="" class="text-center m-auto d-block">
+        </div>
+        <div class="body position-relative">
+            <button class="btn text-light clear position-absolute d-none" onclick="clearForm(this)">Clear</button>
+            <form class="m-auto p-3 rounded-4 position-relative" data-type="add">
+                <i class="fa-solid fa-rotate-left position-absolute reset-icon d-none" onclick="reset(this)"></i>
+                <div class="title text-center mb-4 fw-bolder">
+                    <h3>Students System</h3>
+                </div>
+                <div class="input-group w-100 m-auto mb-3">
+                    <label for="FirstName" class="input-group-text" id="basic-addon1"><i
+                            class="fa-solid fa-user"></i></label>
+                    <input type="text" id="FirstName" name="FirstName" class="form-control" placeholder="First Name*"
+                        aria-label="First Name*" aria-describedby="basic-addon1" onblur="checkInput(this)" onfocus="clearAppear()">
+                </div>
+                <p class="alert alert-danger d-none" data-error-name="FirstName" role="alert">
+                </p>
+                <div class="input-group w-100 m-auto mb-3">
+                    <label for="LastName" class="input-group-text" id="basic-addon1"><i
+                            class="fa-solid fa-user"></i></label>
+                    <input type="text" id="LastName" name="LastName" class="form-control" placeholder="Last Name*"
+                        aria-label="Last Name*" aria-describedby="basic-addon1" onblur="checkInput(this)">
+                </div>
+                <p class="alert alert-danger d-none" data-error-name="LastName" role="alert">
+                </p>
+                <div class="input-group w-100 m-auto mb-3">
+                    <label for="Email" class="input-group-text" id="basic-addon1"><i
+                            class="fa-solid fa-envelope"></i></label>
+                    <input type="text" id="Email" name="Email" class="form-control" placeholder="Email*"
+                        aria-label="Email*" aria-describedby="basic-addon1" onblur="checkInput(this);uniqueEStudent();">
+                </div>
+                <p class="alert alert-danger d-none" data-error-name="Email" role="alert">
+                </p>
+                <div class="input-group w-100 m-auto mb-3">
+                    <label for="Age" class="input-group-text" id="basic-addon1"><i
+                            class="fa-solid fa-hashtag"></i></label>
+                    <input type="text" id="Age" name="Age" class="form-control" placeholder="Age*" aria-label="Age*"
+                        aria-describedby="basic-addon1" onblur="checkInput(this)">
+                </div>
+                <p class="alert alert-danger d-none" data-error-name="Age" role="alert">
+                </p>
+                <div class="input-group w-100 m-auto mb-3">
+                    <label for="Phone" class="input-group-text" id="basic-addon1"><i
+                            class="fa-solid fa-mobile"></i></label>
+                    <input type="text" id="Phone" name="Phone" class="form-control" placeholder="Phone*"
+                        aria-label="Phone*" aria-describedby="basic-addon1" onblur="checkInput(this);uniquePStudent();">
+                </div>
+                <p class="alert alert-danger d-none" data-error-name="Phone" role="alert">
+                </p>
+                <button class="p-2 rounded-3"><i class="fa-solid fa-user-plus me-1"></i>Add</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="Search" class="w-25 m-auto">
+        <div class="input-group w-100 m-auto mb-3">
+            <label class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></label>
+            <input type="text" id="SearchInput" class="form-control" placeholder="Search..." aria-label="search"
+                aria-describedby="basic-addon1"">
+        </div>
+    </section>
+
+    <section id="Data" class="w-75 m-auto my-5">
+        <div class="table-responsive w-100">
+            <table class="table table-light table-striped table-hover mb-0">
+                <thead class="">
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Phone</th>
+                        <th>Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="table-alert" colspan="7" class="table-warning text-center">
+                            There are no data
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div id="Popup" onclick="closePopup(popupEle)">
+        <div class="box rounded-3">
+            
+        </div>
+    </div>
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>

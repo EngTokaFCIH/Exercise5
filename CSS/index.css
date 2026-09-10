@@ -1,0 +1,195 @@
+:root{
+    --first-color:#172437
+}
+body{
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+body::-webkit-scrollbar{
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #dfc769;
+}
+
+
+#Register .clear{
+    background-color: #6a89ce;
+    transform: scale(1);
+    transition: 0.5s;
+    top: 30px;
+    left: 76%;
+}
+
+#Register .head img{
+    width: 200px;
+} 
+
+#Register .clear:hover{
+    transform: scale(1.04);
+}
+
+#Register form{
+    width: 500px;
+    color: #fbed97;
+    background-color: #243b55;
+    border: 1px solid #929daa;
+}
+
+#Register form .title h3{
+    font-size: 25px;
+}
+ 
+form label i{
+    color: #a97f40;
+}
+
+#Register form button{
+        background-color : transparent;
+        color: white;
+        border : 3px solid #fff;
+        transform: scale(1);
+        width: 100%;
+        transition: 0.5s;
+}
+
+#Register form button:hover{
+    transform: scale(1.03);
+}
+
+#Register form .edit-button{
+    background-color : #6a89ce;
+}
+
+#Register form .reset-icon{
+    right: 20px;
+    top: 15px;
+    font-size: 14px;
+    transition-duration: 0.5s;
+}
+
+#Register form .reset-icon:hover{
+    transform: rotate(360deg);
+}
+
+#Search i{
+    color: #a97f40;
+}
+
+table.table{
+    max-width: max-content;
+    min-width: 100%;
+}
+
+table .buttons button{
+    transition: 0.5s;
+}
+
+table .buttons button:first-child{
+    background-color: rgb(105, 137, 207);
+    color: #243b55;
+}
+table .buttons button:last-child{
+    background-color: #df7c7c;
+    color: #243b55;
+}
+
+table .buttons button>*{
+    transition: 0.5s; 
+}
+
+table .buttons button:hover{
+    transform: scale(1.04);
+}
+
+table .buttons button:hover{
+    color: #000;
+}
+
+table .buttons button.undo{
+    color:white;
+    background-color: #6c757d;
+}
+
+table .buttons button.undo:hover{
+    transform: scale(1);
+    background-color: #5c636a;
+}
+
+#Popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.5s;
+}
+
+#Popup.active{
+    display: flex;
+}
+
+#Popup.show{
+    opacity: 1;
+}
+
+#Popup .box{
+    background-color: #243b55;
+    color: #FFFFFFFF;
+    width: 450px;
+    height: 200px;
+    border: 3px solid #929daa;
+    transform: translateY(-50px);
+    opacity: 0.5;
+    transition-duration: 1s;
+}
+
+#Popup.show .box{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+#Popup .box>*:not(:last-child){
+    border-bottom: 1px solid #929daa;
+}
+
+#Popup .box .foot .buttons .discard{
+    background-color: rgb(107, 117, 125);
+    transition-duration: 0.3s;
+}
+
+#Popup .box .foot .buttons .discard:hover{
+        background-color: #5c636a;
+}
+
+#Popup .box .foot .buttons .delete{
+    background-color: rgb(222, 124, 124);
+}
+
+#Data{
+    border: 4px solid #8e96a1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#Data table{
+    width: max-content;
+    min-width: 100%;
+    margin: 0;
+}
+
+#Data thead {
+    --bs-table-color: #fff;
+    --bs-table-bg: var(--first-color);
+}
