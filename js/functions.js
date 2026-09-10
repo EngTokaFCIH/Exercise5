@@ -441,7 +441,7 @@ function search(searchValue){
         if(searchValue == ""){
             return [];
         }
-        return student.FirstName.toLowerCase().includes(searchValue.toLowerCase()) ||
+        return student.FirstName.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
          student.LastName.toLowerCase().includes(searchValue.toLowerCase()) ||
          student.Email.toLowerCase().includes(searchValue.toLowerCase())||
          student.Phone.toLowerCase().includes(searchValue.toLowerCase())
