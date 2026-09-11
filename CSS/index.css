@@ -18,17 +18,18 @@ body::-webkit-scrollbar-thumb{
 }
 
 
+
+#Register .head img{
+    width: 200px;
+} 
+
 #Register .clear{
     background-color: #6a89ce;
     transform: scale(1);
     transition: 0.5s;
     top: 30px;
-    left: 76%;
+    left: 70%;
 }
-
-#Register .head img{
-    width: 200px;
-} 
 
 #Register .clear:hover{
     transform: scale(1.04);

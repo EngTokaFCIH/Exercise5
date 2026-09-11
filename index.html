@@ -37,8 +37,8 @@
                 <div class="input-group w-100 m-auto mb-3">
                     <label for="LastName" class="input-group-text" id="basic-addon1"><i
                             class="fa-solid fa-user"></i></label>
-                    <input type="text" id="LastName" name="LastName" class="form-control" placeholder="Last Name*"
-                        aria-label="Last Name*" aria-describedby="basic-addon1" onblur="checkInput(this)">
+                    <input type="text" id="LastName" name="LastName" class="form-control" placeholder="Last Name*" 
+                        aria-label="Last Name*" aria-describedby="basic-addon1" onblur="checkInput(this)" onfocus="clearAppear()">
                 </div>
                 <p class="alert alert-danger d-none" data-error-name="LastName" role="alert">
                 </p>
@@ -46,14 +46,14 @@
                     <label for="Email" class="input-group-text" id="basic-addon1"><i
                             class="fa-solid fa-envelope"></i></label>
                     <input type="text" id="Email" name="Email" class="form-control" placeholder="Email*"
-                        aria-label="Email*" aria-describedby="basic-addon1" onblur="checkInput(this);uniqueEStudent();">
+                        aria-label="Email*" aria-describedby="basic-addon1" onblur="checkInput(this);uniqueEStudent();"  onfocus="clearAppear()">
                 </div>
                 <p class="alert alert-danger d-none" data-error-name="Email" role="alert">
                 </p>
                 <div class="input-group w-100 m-auto mb-3">
                     <label for="Age" class="input-group-text" id="basic-addon1"><i
                             class="fa-solid fa-hashtag"></i></label>
-                    <input type="text" id="Age" name="Age" class="form-control" placeholder="Age*" aria-label="Age*"
+                    <input type="text" id="Age" name="Age" class="form-control" placeholder="Age*" aria-label="Age* onfocus="clearAppear()"
                         aria-describedby="basic-addon1" onblur="checkInput(this)">
                 </div>
                 <p class="alert alert-danger d-none" data-error-name="Age" role="alert">
@@ -62,7 +62,7 @@
                     <label for="Phone" class="input-group-text" id="basic-addon1"><i
                             class="fa-solid fa-mobile"></i></label>
                     <input type="text" id="Phone" name="Phone" class="form-control" placeholder="Phone*"
-                        aria-label="Phone*" aria-describedby="basic-addon1" onblur="checkInput(this);uniquePStudent();">
+                        aria-label="Phone*" aria-describedby="basic-addon1" onblur="checkInput(this);uniquePStudent();"  onfocus="clearAppear()">
                 </div>
                 <p class="alert alert-danger d-none" data-error-name="Phone" role="alert">
                 </p>

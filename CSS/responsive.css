@@ -3,6 +3,10 @@
         width: 170px;
     }
 
+    #Register .clear{
+        top: -40px;
+}
+
     #Register form {
         width: 80%;
     }
@@ -15,6 +19,11 @@
 @media (min-width: 371px) and (max-width: 1300px) {}
 
 @media (min-width: 577px) and (max-width: 1300px) {
+        #Register .clear{
+            top:30px;   
+           left: 87%;
+    }
+   
     #Register form {
         width: 70%;
     }
@@ -26,6 +35,10 @@
 }
 
 @media (min-width: 769px) and (max-width: 1300px) {
+    #Register .clear{
+        left: 77%;
+    }
+
     #Register form {
         width: 50%;
     }
@@ -40,4 +53,8 @@
 
 }
 
-@media (min-width: 1181px) and (max-width: 1300px) {}
+@media (min-width: 1181px) and (max-width: 1300px) {
+    #Register .clear{
+        left: 76%;
+    }
+}
