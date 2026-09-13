@@ -1,23 +1,27 @@
-function clearAppear(){
+function clearAppear() {
     let clearButton = document.querySelector(".clear")
-        clearButton.classList.remove("d-none")
+    clearButton.classList.remove("d-none")
 }
 
-function clearForm(that){
+function clearForm(that) {
     resetForm()
     that.classList.add("d-none")
+    selectedButton = tableBody.querySelector("button.undo")
+    if(selectedButton){
+        reset(resetButton);
+    }
 }
 
 /**to check input if it empty or data is invalid pr data is valid ---- i call it from html*/
 function checkInput(input) {
     let inputName = input.name,
-    inputValue = input.value.trim(),
-    //comparison operator 
-    isEmpty = inputValue === "",
-    errorEle = document.querySelector(`p.alert[data-error-name="${inputName}"]`),
-    isInValid = !regexInputs[inputName].test(inputValue),
-    errorMsg = "";
-    
+        inputValue = input.value.trim(),
+        //comparison operator 
+        isEmpty = inputValue === "",
+        errorEle = document.querySelector(`p.alert[data-error-name="${inputName}"]`),
+        isInValid = !regexInputs[inputName].test(inputValue),
+        errorMsg = "";
+
     input.value = input.value.trim();
     if (isEmpty) {
         errorEle.textContent = "This field is required.";
@@ -139,7 +143,7 @@ function addStudent() {
     // *so we want to tell the input that we stand on it right now(focus) to enter to case of blur before submit 
     // *so we can call checkInput function and check the value of input
     let focusInput = registerForm.querySelector("input:focus");
-    if(focusInput){}
+    if (focusInput) { }
     /* *we use ? because focusInput.blur() give an error as when value is correct it will enter to submit 
        *but now focusInput dose not exist so blur() now refer to null */
     focusInput?.blur();
@@ -227,7 +231,7 @@ function showStudent(student) {
 
 // loop on localStorage to appear students in table continuously
 function showStudents(data) {
-    tableBody.innerHTML =` <tr>
+    tableBody.innerHTML = ` <tr>
                     <td id="table-alert" colspan="7" class="table-warning text-center">
                         There are no data
                     </td>
@@ -296,6 +300,11 @@ function showPopupEle(id, studentId, that) {
 
 
 function openPopUp(popupEle, studentId, that, id) {
+    if(id == 'Delete'){
+        if (isEditing == true) {
+            return;
+        }
+    }
     showPopupEle(id, studentId, that);
     popupEle.classList.add("active");
     setTimeout(function () {
@@ -320,7 +329,7 @@ function closePopup(popupEle) {
 function insertStudentFromTableIntoForm(studentId, that, id) {
     let resetButton = registerForm.querySelector(".reset-icon");
     resetButton.classList.remove("d-none")
-    resetButton.setAttribute("data-student-id",studentId);
+    resetButton.setAttribute("data-student-id", studentId);
     studentIndex = findStudentIndex(studentId),
         trEle = tableBody.querySelector(`tr[data-student-id="${studentId}"]`);
     resetForm();
@@ -350,15 +359,20 @@ function insertStudentFromTableIntoForm(studentId, that, id) {
     registerForm.setAttribute('data-student-id', studentId)
 }
 
-function enableButtons(){
+function enableButtons() {
     tableBody.querySelectorAll(".edit, .delete").forEach(function (button) {
-            button.classList.remove("disabled")})
+        button.classList.remove("disabled");
+        button.classList.remove("blocked")
+        button.style.pointerEvents = ""
+    })
 }
 
 
-function disableButtons(){
+function disableButtons() {
     tableBody.querySelectorAll(".edit, .delete").forEach(function (button) {
         button.classList.add("disabled")
+        button.classList.add("blocked")
+        button.style.pointerEvents = "none"
     })
 }
 
@@ -401,9 +415,9 @@ function editStudent() {
                         </td>
 `
     trEle.classList.add("table-success")
-    setTimeout(function(){
+    setTimeout(function () {
         trEle.classList.remove("table-success")
-    },3000)
+    }, 3000)
     updateLocalStorage();
     resetForm();
     enableButtons();
@@ -412,39 +426,50 @@ function editStudent() {
 
 
 function handleEditUndo(studentId, that) {
-    let selectedButton = that;
-    if (selectedButton.classList.contains("edit")) {
-        insertStudentFromTableIntoForm(studentId, that, 'Edit');
-        selectedButton.classList.remove("edit");
-        selectedButton.classList.add("undo");
-        selectedButton.textContent = "Undo"
-        disableButtons();
-    } else if (that.classList.contains("undo")){
+    // we didn't initialize selectedButton as a local var => as let in fun in every period make var change every time
+    if (selectedButton == undefined || selectedButton == null) {
+        console.log("ok")
+        selectedButton = that;
+        if (selectedButton.classList.contains("edit")) {
+            insertStudentFromTableIntoForm(studentId, that, 'Edit');
+            selectedButton.classList.remove("edit");
+            selectedButton.classList.add("undo");
+            selectedButton.textContent = "Undo"
+            isEditing = true;
+            disableButtons();
+        }
+    } else if (selectedButton == that && selectedButton.classList.contains("undo")) {
         let resetButton = registerForm.querySelector(".reset-icon");
         resetButton.classList.add("d-none")
         selectedButton.classList.add("edit");
         selectedButton.classList.remove("undo");
         selectedButton.innerHTML = "<i class='fa-solid fa-user-pen me-1'></i>Edit"
+        isEditing = false
         enableButtons();
-        resetForm();
-    }}
+        clearForm(clearButton);  
+        selectedButton = null;
+    } else {
+        return;
+    }
+        
+}
 
+function reset(that) {
+    // clearForm(clearButton)
+    let studentId = that.getAttribute("data-student-id")
+    selectedButton = tableBody.querySelector("button.undo")
+    handleEditUndo(studentId, selectedButton)
+}
 
-function reset(that){
-   let studentId = that.getAttribute("data-student-id")
-   selectedButton = tableBody.querySelector("button.undo")
-   handleEditUndo(studentId , selectedButton)
-}    
-    
-function search(searchValue){
-    let filteredStudents = students.filter(function(student){
-        if(searchValue == ""){
+function search(searchValue) {
+    let filteredStudents = students.filter(function (student) {
+        if (searchValue.trim() == "") {
             return [];
         }
         return student.FirstName.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
-         student.LastName.toLowerCase().includes(searchValue.toLowerCase()) ||
-         student.Email.toLowerCase().includes(searchValue.toLowerCase())||
-         student.Phone.toLowerCase().includes(searchValue.toLowerCase())
+            student.LastName.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
+            student.Email.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
+            student.Phone.toLowerCase().includes(searchValue.toLowerCase().trim())
     })
     showStudents(filteredStudents)
     isNoData(filteredStudents)

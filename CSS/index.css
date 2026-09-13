@@ -198,3 +198,7 @@ table .buttons button.undo:hover{
     --bs-table-color: #fff;
     --bs-table-bg: var(--first-color);
 }
+
+.blocked{
+    opacity: 0.5;
+}

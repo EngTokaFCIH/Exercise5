@@ -8,14 +8,18 @@ let registerForm = document.querySelector("form"),
     regexInputs = {
         'FirstName': /^[A-Za-z\-]{3,}$/,
         'LastName': /^[A-Za-z\-]{3,}/,
-        'Email': /^[A-Za-z_]?[A-Za-z_\.0-9]+@(gmail|yahoo)\.(com|org)$/,
+        'Email': /^[A-Za-z_]?[A-Za-z_\.]+[0-9]{0,}@(gmail|yahoo)\.(com|org)$/,
         'Age': /^[1-9][0-9]$/,
         'Phone': /^(((02)?01(0|1|2|5)[0-9]{8})|(02)[0-9]{8})$/
     },
     popupEle = document.querySelector("#Popup"),
     popupBoxEle = popupEle.querySelector("#Popup .box"),
     deleteButton,
-    searchInput = document.querySelector("#SearchInput");
+    searchInput = document.querySelector("#SearchInput"),
+    isEditing = false,
+    selectedButton,
+    clearButton = document.querySelector(".clear"),
+    resetButton = document.querySelector(".reset-icon");
 
 if (localStorage.getItem('students') === null) {
     updateLocalStorage();
