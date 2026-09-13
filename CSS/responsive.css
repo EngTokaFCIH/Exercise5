@@ -14,9 +14,17 @@
     #Search {
         width: 200px;
     }
+
+    #Popup .box{
+        width: 300px;
+    }
 }
 
-@media (min-width: 371px) and (max-width: 1300px) {}
+@media (min-width: 371px) and (max-width: 1300px) {
+    #Popup .box{
+        width: 350px;
+    }
+}
 
 @media (min-width: 577px) and (max-width: 1300px) {
         #Register .clear{
@@ -31,6 +39,10 @@
     #Search{
         width: 300px;
 }
+
+    #Popup .box{
+        width: 400px;
+    }
 
 }
 

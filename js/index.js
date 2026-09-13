@@ -84,8 +84,7 @@ registerForm.addEventListener("submit", function (e) {
     } else if (formType == 'edit') {
         let studentId = registerForm.getAttribute('data-student-id'),
         trEle = tableBody.querySelector(`tr[data-student-id="${studentId}"]`);
-        // editStudent();
-            formBtn.onclick = function () {
+        formBtn.onclick = function () {
             setTimeout(function () {
                 if (!registerForm.querySelector(".is-invalid")) {
                     openPopUp(popupEle, studentId, trEle, 'Edit')

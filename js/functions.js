@@ -171,7 +171,7 @@ function addStudent() {
     isNoData(students);
 
     // reset form after submit
-    resetForm();
+    clearForm(clearButton);
 }
 
 
