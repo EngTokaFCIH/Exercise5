@@ -293,7 +293,7 @@ function showPopupEle(id, studentId, that) {
                                     <div class=" foot px-3">
                                         <div class="buttons d-flex align-items-center justify-content-end column-gap-2 ">
                                             <button class="discard btn text-light" onclick="closePopup(popupEle)">Discard</button> 
-                                            <button class="btn text-light" style="background-color : #6a89ce;" onclick="editStudent() ">Yes, save</button>
+                                            <button class="btn text-light" style="background-color : #6a89ce;" onclick="editStudent()">Yes, save</button>
                                         </div>
                                     </div>`}
 }
@@ -410,7 +410,7 @@ function editStudent() {
                         <td>
                             <div class="buttons">
                                 <button class="edit btn me-3" onclick="handleEditUndo('${student.id}' , this)" ><i class='fa-solid fa-user-pen me-1'></i>Edit</button>
-                                <button class="delete btn" onclick="openPopUp(popupEle , ${student.id} , this , 'Delete')"><i class="fa-solid fa-user-minus me-1"></i>Delete</button>
+                                <button class="delete btn" onclick="openPopUp(popupEle , '${student.id}' , this , 'Delete')"><i class="fa-solid fa-user-minus me-1"></i>Delete</button>
                             </div>
                         </td>
 `
@@ -422,10 +422,13 @@ function editStudent() {
     resetForm();
     enableButtons();
     closePopup(popupEle)
+    clearForm(clearButton);
+    selectedButton = undefined;
 }
 
 
 function handleEditUndo(studentId, that) {
+    console.log("ok")
     // we didn't initialize selectedButton as a local var => as let in fun in every period make var change every time
     if (selectedButton == undefined || selectedButton == null) {
         console.log("ok")

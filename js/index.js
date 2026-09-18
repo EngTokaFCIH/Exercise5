@@ -6,8 +6,8 @@ let registerForm = document.querySelector("form"),
     // we just want to select table body not all table
     tableBody = document.querySelector("#Data tbody"),
     regexInputs = {
-        'FirstName': /^[A-Za-z\-]{3,}$/,
-        'LastName': /^[A-Za-z\-]{3,}/,
+        'FirstName': /^(([A-Za-z]{3,})|([A-Za-z]{2}\-[A-Za-z]{3,}))$/,
+        'LastName': /^(([A-Za-z]{3,})|([A-Za-z]{2}\-[A-Za-z]{3,}))$/,
         'Email': /^[A-Za-z_]?[A-Za-z_\.]+[0-9]{0,}@(gmail|yahoo)\.(com|org)$/,
         'Age': /^[1-9][0-9]$/,
         'Phone': /^(((02)?01(0|1|2|5)[0-9]{8})|(02)[0-9]{8})$/
