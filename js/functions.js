@@ -423,6 +423,7 @@ function editStudent() {
     enableButtons();
     closePopup(popupEle)
     clearForm(clearButton);
+    resetButton.classList.add("d-none");
     selectedButton = undefined;
 }
 
